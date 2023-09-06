@@ -98,20 +98,57 @@ Organizzare i singoli membri in card/schede
 
 const rowDomEl = document.querySelector('.row');
 
-for (let i = 0; i < team.length; i++) {
-    const member = team[i];
-
-    const markupEl = 
-    `<div class="col-2">
-    <div class="card bg-dark">
-        <img class="card-img-top" src="${member["pic"]}" alt="">
-        <div class="card-body">
-            <h4 class="fs-5 text-light">${member["name"]}</h4>
-            <p class="text-light">${member["role"]}</p>
-        </div>
-    </div>
-</div> `;
-
-    rowDomEl.insertAdjacentHTML("beforeend", markupEl);
+function addTeamMembersToDom() {
     
+    for (let i = 0; i < team.length; i++) {
+        const member = team[i];
+    
+        const markupEl = 
+        `<div class="col-3 mb-4">
+        <div class="card bg-dark">
+            <img class="card-img-top" src="${member["pic"]}" alt="">
+            <div class="card-body">
+                <h4 class="fs-5 text-light">${member["name"]}</h4>
+                <p class="text-light">${member["role"]}</p>
+            </div>
+        </div>
+    </div> `;
+    
+        rowDomEl.insertAdjacentHTML("beforeend", markupEl);
+        
+    }
 }
+
+addTeamMembersToDom();
+
+
+
+const addMemberForm = document.getElementById('add_member');
+
+addMemberForm.addEventListener('submit', function (ev) {
+
+    ev.preventDefault();
+
+    const newMemberName = document.getElementById('name').value;
+    const newMemberRole = document.getElementById('role').value;
+    let loremId = Math.floor(Math.random() * 999) + 100;
+    const newMemberPic = `https://picsum.photos/id/${loremId}/400/429`
+    const newMember = {
+        name: newMemberName,
+        role: newMemberRole,
+        pic: newMemberPic
+    };
+
+    team.push(newMember);
+
+    rowDomEl.innerHTML = '';
+    addTeamMembersToDom();
+    
+})
+
+
+/*
+BONUS 3:
+Aggiungete un form in pagina per permettere all’utente di aggiungere nuovi membri del team: cliccando sul pulsante “add” viene creato un nuovo oggetto, 
+il quale viene inserito nell’array iniziale e viene stampata una nuova card con tutte le informazioni inserite dall’utente.
+*/
