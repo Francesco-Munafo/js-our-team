@@ -72,7 +72,7 @@ const team = [
 
     }
     
-]
+];
 
 /*
 MILESTONE 1:
@@ -86,12 +86,32 @@ Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e 
 /*
 MILESTONE 2:
 Stampare le stesse informazioni su DOM sottoforma di stringhe
+
++++++++
+
+BONUS 1:
+Trasformare la stringa foto in una immagine effettiva
+
+BONUS 2:
+Organizzare i singoli membri in card/schede
 */
+
+const rowDomEl = document.querySelector('.row');
 
 for (let i = 0; i < team.length; i++) {
     const member = team[i];
 
-    const containerDomEl = document.querySelector('.container')
-    containerDomEl.insertAdjacentHTML("beforeend" )
+    const markupEl = 
+    `<div class="col-2">
+    <div class="card bg-dark">
+        <img class="card-img-top" src="${member["pic"]}" alt="">
+        <div class="card-body">
+            <h4 class="fs-5 text-light">${member["name"]}</h4>
+            <p class="text-light">${member["role"]}</p>
+        </div>
+    </div>
+</div> `;
+
+    rowDomEl.insertAdjacentHTML("beforeend", markupEl);
     
 }
