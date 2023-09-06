@@ -31,53 +31,47 @@ Creare l’array di oggetti con le informazioni fornite.
 const team = [
     {
 
-        name: 'Cicciomax',
-        role: 'Team Leader | Sentinel',
-        pic: './assets/img/......'
+        name: 'Wayne Barnett',
+        role: 'Founder & CEO',
+        pic: './assets/img/wayne-barnett-founder-ceo.jpg'
 
     },
     {
 
-        name: 'Hycron',
-        role: 'Duelist',
-        pic: './assets/img/......'
+        name: 'Angela Caroll',
+        role: 'Chief Editor',
+        pic: './assets/img/angela-caroll-chief-editor.jpg'
 
     },
     {
 
-        name: 'Warwolf',
-        role: 'Initiator',
-        pic: './assets/img/......'
+        name: 'Walter Gordon',
+        role: 'Office Manager',
+        pic: './assets/img/walter-gordon-office-manager.jpg'
 
     },
     {
 
-        name: 'Ginomax',
-        role: 'Controller',
-        pic: './assets/img/......'
+        name: 'Angela Lopez',
+        role: 'Social Media Manager',
+        pic: './assets/img/angela-lopez-social-media-manager.jpg'
 
     },
     {
 
-        name: 'Doketmantis',
-        role: 'Duelist',
-        pic: './assets/img/......'
+        name: 'Scott Estrada',
+        role: 'Developer',
+        pic: './assets/img/scott-estrada-developer.jpg'
 
     },
     {
 
-        name: 'Samu11x',
-        role: 'Reserve#1',
-        pic: './assets/img/......'
+        name: 'Barbara Ramos',
+        role: 'Graphic Designer',
+        pic: './assets/img/barbara-ramos-graphic-designer.jpg'
 
-    },
-    {
-
-        name: 'Cav',
-        role: 'Reserve#2',
-        pic: './assets/img/......'
-
-    },
+    }
+    
 ]
 
 /*
@@ -85,6 +79,19 @@ MILESTONE 1:
 Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 */
 
-for (const key in team) {
-    console.log(team[key]);
+ for (const key in team) {
+     console.log(team[key]);
+ }
+
+/*
+MILESTONE 2:
+Stampare le stesse informazioni su DOM sottoforma di stringhe
+*/
+
+for (let i = 0; i < team.length; i++) {
+    const member = team[i];
+
+    const containerDomEl = document.querySelector('.container')
+    containerDomEl.insertAdjacentHTML("beforeend" )
+    
 }
